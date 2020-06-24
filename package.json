@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "docker-build" : "docker build -t weather-app .",
+    "docker-serve" : "docker run -it -p 8080:8080  --rm --name weather-app-1 weather-app",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",

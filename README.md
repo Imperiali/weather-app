@@ -8,7 +8,7 @@ npm install
 Or...
 
 ```
-docker build -t weather-app .
+npm run docker-build
 ```
 
 ### Compiles and hot-reloads for development
@@ -19,7 +19,7 @@ npm run serve
 Or...
 
 ```
-docker run -it -p 8080:8080  --rm --name weather-app-1 weather-app
+npm run docker-serve
 ```
 
 ### Compiles and minifies for production
