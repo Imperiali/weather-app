@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "docker-build" : "docker-compose build",
-    "docker-serve" : "docker-compose up",
     "serve": "docker-compose up -d back && vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "docker-build": "docker-compose build",
+    "docker-serve": "docker-compose up"
   },
   "dependencies": {
     "axios": "^0.19.2",
