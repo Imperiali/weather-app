@@ -10,9 +10,20 @@
 </template>
 
 <script>
-    export default {
-        name: "Home"
-    }
+  import InputArea from "../components/InputArea";
+  import TodayWeather from "../components/TodayWeather";
+  import {mapState} from "vuex";
+  import NextDay from "../components/NextDay";
+
+  export default {
+    name: "Home",
+    components: {
+      InputArea,
+      TodayWeather,
+      NextDay
+    },
+    computed: mapState(['forecast']),
+  }
 </script>
 
 <style scoped>
