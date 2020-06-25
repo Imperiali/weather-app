@@ -1,4 +1,5 @@
 <template>
+  <v-card class="customCard mx-auto" tile>
     <div>
       <InputArea />
       <TodayWeather :forecast="forecast.today"/>
