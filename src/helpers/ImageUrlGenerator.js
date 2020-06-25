@@ -1,13 +1,9 @@
 import axios from "axios";
 
-async function getImage() {
-  let result = ''
-
-  await axios('http://localhost:3000/bingApi').then(res => {
-    result = res
+function getImage() {
+  return axios('http://localhost:3000/bingApi').then(res => {
+    return res.data
   })
-
-  return result
 }
 
 export default { getImage }
