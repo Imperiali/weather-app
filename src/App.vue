@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <v-container class="d-flex justify-center">
+    <div :style="customBackground"></div>
+    <v-container class="d-flex justify-center" style="z-index: 2">
       <Home/>
     </v-container>
   </v-app>
