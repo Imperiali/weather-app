@@ -22,15 +22,12 @@ app.get('/bingApi', async(request, response) => {
 
   await axios('https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1')
     .then(res => {
-      console.log('funcionou!!');
-      console.log(res.data.images[0].url);
-      data = {status: 'SUCCESS', url:`https://www.bing.com${res.data.images[0].url}`
-      }
+      data = {status: 'SUCCESS', url:`https://www.bing.com${res.data.images[0].url}`}
+      console.log('Returning data: ', data)
     }).catch(res => {
-      console.log(res);
       data = {status: 'ERROR', url: 'https://www.talkwalker.com/images/2020/blog-headers/image-analysis.png' }
+      console.error('Error: ', res.data)
     })
-  console.log('Data...', data);
   response.status(200).send(data);
 });
 
