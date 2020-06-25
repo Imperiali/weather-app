@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import Home from './pages/Home';
-import Geolocation from "./helpers/Geolocation";
+  import Home from './pages/Home';
+  import ImageUrlGenerator from "./helpers/ImageUrlGenerator";
+  import {mapState} from "vuex";
 
 export default {
   name: 'App',
