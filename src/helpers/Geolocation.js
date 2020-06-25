@@ -1,5 +1,7 @@
 import * as axios from "axios";
 
+const KEY = 'c63386b4f77e46de817bdf94f552cddf'
+
 function getGeolocation(callback) {
   if (navigator.geolocation) {
     return navigator.geolocation.getCurrentPosition(callback);
