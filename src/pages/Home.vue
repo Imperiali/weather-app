@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>Wheater app!</h1>
+      <InputArea />
+      <TodayWeather :forecast="forecast.today"/>
     </div>
 </template>
 
