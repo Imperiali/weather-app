@@ -3,9 +3,8 @@
     <div class="col-6">
       <v-icon size="150" color="white">mdi-weather-{{weatherIcon}}</v-icon>
     </div>
-    <div class="d-flex flex-column col-6">
-      <p>Hoje</p>
-      <p>{{temperature}}</p>
+    <div class="d-flex flex-column col-6 text--white">
+      <DayTemp day-title="hoje" day-option="today" />
       <p>{{forecast.weather[0].description.toLocaleString()}}</p>
       <p><small>Vento:</small> NO {{forecast.wind.speed}} km/h</p>
       <p><small>Humidade:</small>{{forecast.main.humidity}}%</p>
@@ -16,9 +15,16 @@
 
 <script>
 
+  import DayTemp from "./DayTemp";
+
   export default {
     name: "TodayWeather",
-    props: ['forecast', 'temperature'],
+    props: ['forecast'],
+    components:{
+      DayTemp
+    },
+    data:() => ({
+    }),
     computed: {
       weatherIcon() {
         const climate = this.forecast.weather[0].main.toLowerCase()
