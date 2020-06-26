@@ -31,5 +31,32 @@ app.get('/image', async (request, response) => {
   response.status(200).send(data);
 });
 
+app.get('/geocode', async (request, response) => {
+  const KEY = 'c63386b4f77e46de817bdf94f552cddf'
+  let data = ''
+  let params = request.query.location
+  let url = `https://api.opencagedata.com/geocode/v1/json?q=${params}&key=${KEY}&language=en`
+  console.log('Trying... ', url)
+
+  await axios(url).then(res => {
+      data = {
+        status : 'SUCCESS',
+        name: {
+          ...res.data.results[0].components,
+          formatted: res.data.results[0].formatted
+        },
+        coords: {
+          latitude: res.data.results[0].geometry.lat,
+          longitude: res.data.results[0].geometry.lng,
+        }
+      }
+      console.log('Returning data: ', data)
+    }).catch(res => {
+      data = {status: 'ERROR', message: JSON.stringify(res)}
+      console.error('Error: ', res)
+    })
+  response.status(200).send(data);
+});
+
 app.listen(PORT, HOST);
 console.log(`Running on http://localhost:${PORT}`);
