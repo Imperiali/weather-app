@@ -1,6 +1,24 @@
 import * as axios from "axios";
 
-const KEY = 'c63386b4f77e46de817bdf94f552cddf'
+const excludedValues = [
+  'ISO',
+  '(^_)',
+  'formatted',
+  'continent'
+]
+
+function resolveLocalName(local) {
+  console.log('Resolving local: ', local);
+  return Object.keys(local).map(val => {
+    if (validName(val) && local[val] && local[val] !== '') {
+      return local[val]
+    }
+  }).join().replace(/^,+/g,'');
+}
+
+function validName(val) {
+  return !(new RegExp(excludedValues.join('|')).test(val))
+}
 
 function getGeolocation(callback) {
   if (navigator.geolocation) {
