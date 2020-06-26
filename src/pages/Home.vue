@@ -1,18 +1,18 @@
 <template>
   <v-card class="mx-auto" :style="customCard" tile>
-    <div>
-      <InputArea/>
-      <TodayWeather :style="forecastBackground.today"
-                    :forecast="forecast.today"
-                    :temperature="tempCelsius ? this.$store.getters.getFahrenheit('today') : this.$store.getters.getCelcius('today')"
-                    @click="changeTempScale()"
-      />
-    </div>
-    <NextDay :style="forecastBackground.tomorrow" day-title="Amanhã"
-             :temperature="tempCelsius ? this.$store.getters.getFahrenheit('tomorrow') : this.$store.getters.getCelcius('tomorrow')"
+    <InputArea/>
+    <TodayWeather :style="forecastBackground.today"
+                  :forecast="forecast.today"
+                  @click="changeTempScale()"/>
+
+    <NextDay :style="forecastBackground.tomorrow"
+             day-title="Amanhã"
+             day-option="tomorrow"
              @click="changeTempScale()"/>
-    <NextDay :style="forecastBackground.afterTomorrow" day-title="Depois de amanhã"
-             :temperature="tempCelsius ? this.$store.getters.getFahrenheit('afterTomorrow') : this.$store.getters.getCelcius('afterTomorrow')"
+
+    <NextDay :style="forecastBackground.afterTomorrow"
+             day-title="Depois de amanhã"
+             day-option="afterTomorrow"
              @click="changeTempScale()"/>
   </v-card>
 </template>
@@ -34,7 +34,6 @@
     data: () => ({
       customCard: Style.backgroundCustom(),
       tempCelsius: true,
-      temp: ''
     }),
     computed: {
       ...mapState(['forecast']),
