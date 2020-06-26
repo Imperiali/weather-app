@@ -71,7 +71,6 @@ export default new Vuex.Store({
         state.region.coords = {'latitude': coords.latitude, 'longitude': coords.longitude}
         Geolocation.getLocationName(state.region.coords).then(res => {
           state.region = {...state.region, ...res}
-          console.log(state.region)
           Weather.getWeather(state.region.localName).then(res => {
             state.forecast = res
           })
