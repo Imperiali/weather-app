@@ -6,9 +6,14 @@
 </template>
 
 <script>
+  import DayTemp from "./DayTemp";
+
   export default {
     name: "NextDay",
-    props: ['dayTitle', 'temperature']
+    components:{
+      DayTemp,
+    },
+    props: ['dayTitle', 'dayOption'],
   }
 </script>
 
