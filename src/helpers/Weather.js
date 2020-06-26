@@ -12,4 +12,8 @@ function getWeather({city, state_code, country_code}) {
   })
 }
 
-export default { getWeather }
+function tempConverter(temp){
+  return temp * 9 / 5 + 32
+}
+
+export default { getWeather, tempConverter }
