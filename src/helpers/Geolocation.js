@@ -10,6 +10,17 @@ function getGeolocation(callback) {
   }
 }
 
+function getLocationInfo(location) {
+  return axios.get(`http://localhost:3000/geocode?location=${location}`)
+    .then(res => {
+      return {
+        ...res.data,
+        localName: resolveLocalName(res.data.name)
+      }
+    })
+    .catch(err => err)
+}
+
 function getLocationName({latitude, longitude}) {
   return axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${latitude},${longitude}&` +
     `key=${KEY}&language=en`).then(res => {
