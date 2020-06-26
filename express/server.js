@@ -17,7 +17,7 @@ app.use(function (req, res, next) {
   next()
 })
 
-app.get('/bingApi', async(request, response) => {
+app.get('/image', async (request, response) => {
   let data = ''
 
   await axios('https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1')
