@@ -11,30 +11,53 @@
   import Home from './pages/Home';
   import ImageUrlGenerator from "./helpers/ImageUrlGenerator";
   import {mapState} from "vuex";
+  import Style from "./helpers/Style"
 
-export default {
-  name: 'App',
-
-  components: {
-    Home,
-  },
-
-  data: () => ({
-    location: ''
-  }),
-
-  created() {
-    Geolocation.getGeolocation(this.showLocation)
-  },
-
-  methods: {
-    showLocation(position) {
-      console.log({'lat': position.coords.latitude, 'long': position.coords.longitude})
-        return {'lat': position.coords.latitude, 'long': position.coords.longitude}
+  export default {
+    name: 'App',
+    components: {
+      Home,
+    },
+    data: () => ({
+      imageBackground: {
+        url: '',
+      },
+      customBackground: '',
+    }),
+    created() {
+      this.getLocalAddress()
+      this.resolveImgUrl()
+    },
+    computed: {
+      ...mapState(['forecast']),
+    },
+    watch: {
+      imageBackground() {
+        this.customBackground = {
+          ...Style.imageFilter(this.forecast.today.main.temp),
+          background: 'no-repeat',
+          backgroundImage: `url('${this.imageBackground.url}')`,
+          position: 'fixed',
+          left: '0',
+          right: '0',
+          zIndex: '1',
+          display: 'block',
+          width: '100vw',
+          height: '100vh',
+        }
+      }
+    },
+    methods: {
+      resolveImgUrl() {
+        ImageUrlGenerator.getImage().then(res => {
+          this.imageBackground = res
+        })
+      },
+      getLocalAddress() {
+        this.$store.dispatch('RESOLVE_LOCAL_ADDRESS')
+      },
     }
-  }
-
-};
+  };
 </script>
 
 <style scoped>
