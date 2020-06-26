@@ -1,6 +1,6 @@
 <template>
-  <div @click="tempCelsius = !tempCelsius">
-    <p class="d-flex justify-start">{{dayTitle}}</p>
+  <div @click="tempCelsius = !tempCelsius" class="mb-5">
+    <strong class="d-flex justify-start mb-0">{{dayTitle.toUpperCase()}}</strong>
     <p class="d-flex justify-start ma-0">
       {{tempCelsius ? getCelcius(dayOption) : getFahrenheit(dayOption)}}</p>
   </div>
