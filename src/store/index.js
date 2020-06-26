@@ -39,7 +39,7 @@ export default new Vuex.Store({
       tomorrow:{
         main:{
           temp: 27.34,
-        }
+        },
       },
       afterTomorrow:{
         main:{
@@ -57,6 +57,12 @@ export default new Vuex.Store({
     },
     getWeather: (state) => {
       return state.forecast
+    },
+    getFahrenheit: (state) => (day) => {
+      return Weather.tempConverter(state.forecast[day].main.temp) + '°F'
+    },
+    getCelcius: (state) => (day) => {
+      return state.forecast[day].main.temp + '°C'
     }
   },
   mutations: {
