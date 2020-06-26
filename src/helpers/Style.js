@@ -1,19 +1,21 @@
+const opacity = 0.6
+
 function imageFilter(temp) {
   const DEFAULT = {
     FILTER: 'grayscale(0.7)',
-    COLOR: 'rgba(255, 255, 255, 0.5)'
+    COLOR: `rgba(255, 255, 255, ${opacity})`
   }
   const COLD = {
     FILTER: 'hue-rotate(110deg) saturate(50%)',
-    COLOR: 'rgba(0, 255, 255, 0.5)'
+    COLOR: `rgba(0, 255, 255, ${opacity})`
   }
   const HOT = {
     FILTER: 'hue-rotate(250deg) saturate(100%)',
-    COLOR:'rgba(255, 0, 0, 0.5)'
+    COLOR:`rgba(255, 0, 0, ${opacity})`
   }
   const NORMAL = {
     FILTER: 'hue-rotate(360deg) saturate(284%)',
-    COLOR: 'rgba(255, 255, 0, 0.5)'
+    COLOR: `rgba(255, 255, 0, ${opacity})`
   }
 
   let climateStyle
@@ -39,7 +41,7 @@ function imageFilter(temp) {
 
 function backgroundCustom() {
   return {
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    backgroundColor: `rgba(255, 255, 255, ${opacity})`,
   }
 }
 
