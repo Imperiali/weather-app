@@ -1,5 +1,5 @@
 <template>
-  <v-card class="d-flex flex-row " tile>
+  <v-card class="d-flex flex-row elevation-0" tile @click="$emit('click', $event)">
     <v-spacer class="col-6"></v-spacer>
     <div class="col-6">
       <p class="d-flex justify-start">{{dayTitle}}</p>
