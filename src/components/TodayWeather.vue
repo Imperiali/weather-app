@@ -5,7 +5,7 @@
     </div>
     <div class="d-flex flex-column col-6">
       <p>Hoje</p>
-      <p>{{forecast.main.temp}}°C</p>
+      <p>{{temperature}}</p>
       <p>{{forecast.weather[0].description.toLocaleString()}}</p>
       <p><small>Vento:</small> NO {{forecast.wind.speed}} km/h</p>
       <p><small>Humidade:</small>{{forecast.main.humidity}}%</p>
@@ -18,13 +18,7 @@
 
   export default {
     name: "TodayWeather",
-    props: ['forecast'],
-    data: () => ({
-      todayBackground: {
-        backgroundColor: 'rgba(255, 255, 0, 0.5)',
-        color: 'white'
-      }
-    }),
+    props: ['forecast', 'temperature'],
     computed: {
       weatherIcon() {
         const climate = this.forecast.weather[0].main.toLowerCase()
