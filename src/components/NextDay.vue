@@ -1,10 +1,7 @@
 <template>
   <v-card class="d-flex flex-row elevation-0" tile>
     <v-spacer class="col-6"></v-spacer>
-    <div class="col-6">
-      <p class="d-flex justify-start">{{dayTitle}}</p>
-      <p class="d-flex justify-start ma-0">{{temperature}}</p>
-    </div>
+    <DayTemp class="col-6" :day-title="dayTitle" :day-option="dayOption"/>
   </v-card>
 </template>
 
