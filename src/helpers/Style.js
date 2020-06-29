@@ -4,7 +4,7 @@ const DEFAULT = {
   COLOR: `rgba(255, 255, 255, ${opacity})`
 }
 const COLD = {
-  FILTER: 'hue-rotate(110deg) saturate(50%)',
+  FILTER: 'hue-rotate(60deg) saturate(30%) contrast(90%)',
   COLOR: `rgba(0, 255, 255, ${opacity})`
 }
 const HOT = {
@@ -12,7 +12,7 @@ const HOT = {
   COLOR:`rgba(255, 0, 0, ${opacity})`
 }
 const NORMAL = {
-  FILTER: 'hue-rotate(360deg) saturate(284%)',
+  FILTER: 'sepia(100%) saturate(150%)',
   COLOR: `rgba(255, 255, 0, ${opacity})`
 }
 
