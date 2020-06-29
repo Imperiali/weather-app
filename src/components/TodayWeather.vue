@@ -4,7 +4,8 @@
       <v-icon size="150" color="white">mdi-{{weatherIcon}}</v-icon>
     </div>
     <div class="d-flex flex-column col-6 text--white">
-      <DayTemp day-title="hoje" day-option="today" />
+      <DayTemp day-title="hoje" day-option="today"/>
+
       <p>{{forecast.weather[0].description.toLocaleString()}}</p>
 
       <TempDetails>
