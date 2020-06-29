@@ -6,7 +6,7 @@
     <div class="d-flex flex-column col-6 text--white">
       <DayTemp day-title="hoje" day-option="today"/>
 
-      <p>{{forecast.weather[0].description.toLocaleString()}}</p>
+      <p :style="{textTransform:'capitalize'}">{{forecast.weather[0].description}}</p>
 
       <TempDetails>
         <small>Vento:</small> NO {{forecast.wind.speed}} km/h
