@@ -1,6 +1,9 @@
 <template>
   <v-card-title class="cardTitleCustom">
-    <v-text-field :value="region.name.formatted" @change="searchAddress">
+    <v-text-field
+      :value="region.name.formatted"
+      label="Endereço"
+      @change="searchAddress">
       <v-icon slot="prepend">mdi-compass-outline</v-icon>
     </v-text-field>
   </v-card-title>
