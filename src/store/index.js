@@ -62,7 +62,7 @@ export default new Vuex.Store({
     getRegionCoords: (state) => {
       return state.region.coords
     },
-    getWeather: (state) => {
+    getForecast: (state) => {
       return state.forecast
     },
     getFahrenheit: (state) => (day) => {
@@ -70,6 +70,15 @@ export default new Vuex.Store({
     },
     getCelcius: (state) => (day) => {
       return state.forecast[day].main.temp + '°C'
+    },
+    getRegionStatus: (state) => {
+      return state.region.status
+    },
+    getForecastStatus: (state) => {
+      return state.forecast.status
+    },
+    getImageUrl:(state) => {
+      return state.image
     }
   },
   mutations: {
