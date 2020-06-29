@@ -66,33 +66,46 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    RESOLVE_LOCAL_ADDRESS(state) {
-      Geolocation.getGeolocation(({coords}) => {
-        state.region.coords = {'latitude': coords.latitude, 'longitude': coords.longitude}
-        Geolocation.getLocationName(state.region.coords).then(res => {
-          state.region = {...state.region, ...res}
-          Weather.getWeather(state.region.localName).then(res => {
-            state.forecast = res
-          })
-        })
+    SET_COORDS(state, position){
+      state.region.coords = position
+    },
+    SET_STATUS(state, definition){
+      state[definition.name].status = definition.status
+    },
+    SET_REGION(state, region){
+      state.region = {...state.region, ...region}
+    },
+    SET_WEATHER(state){
+      Weather.getWeather(state.region.localName).then(res => {
+        state.forecast = res
       })
     },
-    RESOLVE_INPUT_ADDRESS(state, localName) {
-      state.region.name.formatted = localName
-      Geolocation.getLocationCoords(localName).then(res => {
-        state.region = {...state.region, ...res}
-        Weather.getWeather(state.region.localName).then(res => {
-          state.forecast = res
-        })
-      })
+    SET_FORMATTED_NAME(state, formattedName){
+      state.region.name.formatted = formattedName
     },
+    SET_URL_IMAGE(state, image){
+      state.image = image
+    }
   },
   actions: {
     RESOLVE_LOCAL_ADDRESS({commit}) {
-      commit('RESOLVE_LOCAL_ADDRESS')
+      Geolocation.getGeolocation(({coords}) => {
+        let position = {'latitude': coords.latitude, 'longitude': coords.longitude}
+        commit('SET_COORDS', position)
+        commit('SET_STATUS', {name: 'region', status:'ERROR'})
+        Geolocation.getLocationName(position).then(res => {
+          commit('SET_REGION', res)
+          commit('SET_WEATHER')
+        })
+      })
     },
-    RESOLVE_INPUT_ADDRESS({commit}, payload) {
-      commit('RESOLVE_INPUT_ADDRESS', payload)
+    RESOLVE_INPUT_ADDRESS({commit}, localName) {
+      commit('SET_FORMATTED_NAME', localName)
+      commit('SET_STATUS', {name: 'region', status:'ERROR'})
+      Geolocation.getLocationCoords(localName).then(res => {
+        commit('SET_REGION', res)
+        commit('SET_WEATHER')
+      })
     },
   },
 })
