@@ -92,6 +92,7 @@ export default new Vuex.Store({
       state.region = {...state.region, ...region}
     },
     SET_WEATHER(state){
+      state.forecast.status = 'loading'
       Weather.getWeather(state.region.localName).then(res => {
         state.forecast = res
       })

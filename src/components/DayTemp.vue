@@ -1,7 +1,8 @@
 <template>
   <div @click="tempCelsius = !tempCelsius" class="mb-5">
     <strong class="d-flex justify-start mb-0">{{dayTitle.toUpperCase()}}</strong>
-    <p class="d-flex justify-start ma-0">
+    <v-progress-linear indeterminate color="white" v-if="getForecastStatus === 'loading'"/>
+    <p class="d-flex justify-start ma-0" v-else>
       {{tempCelsius ? getCelcius(dayOption) : getFahrenheit(dayOption)}}</p>
   </div>
 </template>
@@ -16,7 +17,7 @@
       tempCelsius: true
     }),
     computed:{
-      ...mapGetters(['getCelcius', 'getFahrenheit'])
+      ...mapGetters(['getCelcius', 'getFahrenheit', 'getForecastStatus'])
     }
   }
 </script>

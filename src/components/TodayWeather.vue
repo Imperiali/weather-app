@@ -1,7 +1,8 @@
 <template>
   <div class="d-flex justify-space-around align-center px-3">
     <div class="col-6">
-      <v-icon size="150" color="white">mdi-{{weatherIcon}}</v-icon>
+      <v-progress-circular indeterminate size="150" width="20" color="white" v-if="getForecastStatus === 'loading'"/>
+      <v-icon size="150" color="white" v-else>mdi-{{weatherIcon}}</v-icon>
     </div>
     <div class="d-flex flex-column col-6 text--white">
       <DayTemp day-title="hoje" day-option="today"/>
