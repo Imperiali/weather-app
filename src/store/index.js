@@ -25,28 +25,28 @@ export default new Vuex.Store({
       status: 'Error',
       today:{
         main: {
-          temp: 27.34,
-          pressure: 1013,
-          humidity: 57,
+          temp: '',
+          pressure: '',
+          humidity: '',
         },
         weather: [
           {
-            main: "Clouds",
-            description: "nublado",
+            main: "",
+            description: "",
           }
         ],
         wind: {
-          speed: 3.09,
+          speed: '',
         },
       },
       tomorrow:{
         main:{
-          temp: 27.34,
+          temp: '',
         },
       },
       afterTomorrow:{
         main:{
-          temp: 27.34,
+          temp: '',
         }
       },
     },
