@@ -58,5 +58,28 @@ app.get('/geocode', async (request, response) => {
   response.status(200).send(data);
 });
 
+app.get('/weather', async (request, response) => {
+  const KEY = '7ba73e0eb8efe773ed08bfd0627f07b8'
+  let data = ''
+  let params = request.query.location
+  let url = `https://api.openweathermap.org/data/2.5/forecast?q=${params}&` +
+            `cnt=17&units=metric&lang=pt_br&APPID=${KEY}`
+  console.log('Trying... ', url)
+
+  await axios(url).then(res => {
+    data =  {
+      status: 'SUCCESS',
+      today: res.data.list[0],
+      tomorrow: res.data.list[8],
+      afterTomorrow:res.data.list[16]
+    }
+    console.log('Returning data: ', data)
+  }).catch(res => {
+    data = {status: 'ERROR', message: JSON.stringify(res)}
+    console.error('Error: ', res)
+  })
+  response.status(200).send(data);
+});
+
 app.listen(PORT, HOST);
 console.log(`Running on http://localhost:${PORT}`);
