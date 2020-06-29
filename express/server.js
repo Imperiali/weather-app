@@ -2,11 +2,11 @@
 
 const express = require('express');
 const axios = require('axios')
-const {geocodeKey, weatherKey, path, port} = require('./config')
+const {geocodeKey, weatherKey, host, port} = require('./config')
 
 // Constants
 const PORT = port || 3000;
-const HOST = path || '0.0.0.0';
+const HOST = host || '0.0.0.0';
 
 // App
 const app = express();

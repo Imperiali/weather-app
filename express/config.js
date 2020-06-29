@@ -6,5 +6,5 @@ module.exports = {
   geocodeKey: process.env.GEOCODE_KEY,
   weatherKey: process.env.WEATHER_KEY,
   port: process.env.PORT,
-  path: process.env.PATH,
+  host: process.env.HOST,
 };
