@@ -1,7 +1,7 @@
 import * as axios from "axios";
 
-const tempConverter = (temp) => {
-  return temp * 9 / 5 + 32
+const celsiusToFahrenheit = (temp) => {
+  return (temp * 9 / 5 + 32).toFixed(2)
 }
 
 const getWeather = (local) => {
@@ -11,4 +11,4 @@ const getWeather = (local) => {
   })
 }
 
-export default { getWeather, tempConverter }
+export default { getWeather, celsiusToFahrenheit }

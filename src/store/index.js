@@ -66,7 +66,7 @@ export default new Vuex.Store({
       return state.forecast
     },
     getFahrenheit: (state) => (day) => {
-      return Weather.tempConverter(state.forecast[day].main.temp) + '°F'
+      return Weather.celsiusToFahrenheit(state.forecast[day].main.temp) + '°F'
     },
     getCelcius: (state) => (day) => {
       return state.forecast[day].main.temp + '°C'
