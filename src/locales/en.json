@@ -1,0 +1,9 @@
+{
+  "address": "Address",
+  "today": "Today",
+  "wind": "Wind",
+  "humidity": "Humidity",
+  "pressure": "Pressure",
+  "tomorrow": "Tomorrow",
+  "afterTomorrow": "After Tomorrow"
+}
