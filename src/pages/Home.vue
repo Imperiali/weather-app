@@ -39,9 +39,9 @@
       ...mapState(['forecast']),
       forecastBackground() {
         return {
-          today: Style.imageFilter(this.forecast.today.main.temp),
-          tomorrow: Style.imageFilter(this.forecast.tomorrow.main.temp),
-          afterTomorrow: Style.imageFilter(this.forecast.afterTomorrow.main.temp),
+          today: Style.backgroundColorTemp(this.forecast.today.main.temp),
+          tomorrow: Style.backgroundColorTemp(this.forecast.tomorrow.main.temp),
+          afterTomorrow: Style.backgroundColorTemp(this.forecast.afterTomorrow.main.temp),
         }
       }
     },
