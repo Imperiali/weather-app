@@ -8,7 +8,6 @@ const excludedValues = [
 ]
 
 function resolveLocalName(local) {
-  console.log('Resolving local: ', local);
   return Object.keys(local).map(val => {
     if (validName(val) && local[val] && local[val] !== '') {
       return local[val]
