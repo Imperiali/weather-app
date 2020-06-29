@@ -1,9 +1,11 @@
 <template>
   <v-app>
     <div :style="customBackground"></div>
-    <v-container class="d-flex justify-center" style="z-index: 2">
-      <Home/>
-    </v-container>
+    <transition name="fade" appear>
+      <v-container class="d-flex justify-center" style="z-index: 2">
+        <Home/>
+      </v-container>
+    </transition>
   </v-app>
 </template>
 
@@ -17,8 +19,6 @@
     components: {
       Home,
     },
-    data: () => ({
-    }),
     created() {
       this.getLocalAddress()
       this.resolveImgUrl()
@@ -44,5 +44,10 @@
 </script>
 
 <style scoped>
-
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
 </style>
