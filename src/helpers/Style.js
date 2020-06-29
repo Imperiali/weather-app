@@ -48,6 +48,14 @@ function imageFilter(temp) {
   }
 }
 
+function backgroundColorTemp(temp) {
+  let climateStyle = defineTemp(temp)
+
+  return {
+    background: `${climateStyle.COLOR}`,
+  }
+}
+
 function backgroundCustom() {
   return {
     backgroundColor: `rgba(255, 255, 255, ${opacity})`,
@@ -68,4 +76,4 @@ function homeBackground(imageUrl) {
   }
 }
 
-export default { imageFilter, backgroundCustom, homeBackground }
+export default { imageFilter, backgroundCustom, homeBackground, backgroundColorTemp}
