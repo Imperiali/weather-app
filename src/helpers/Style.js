@@ -1,23 +1,33 @@
 const opacity = 0.6
+const DEFAULT = {
+  FILTER: 'grayscale(0.7)',
+  COLOR: `rgba(255, 255, 255, ${opacity})`
+}
+const COLD = {
+  FILTER: 'hue-rotate(110deg) saturate(50%)',
+  COLOR: `rgba(0, 255, 255, ${opacity})`
+}
+const HOT = {
+  FILTER: 'hue-rotate(250deg) saturate(100%)',
+  COLOR:`rgba(255, 0, 0, ${opacity})`
+}
+const NORMAL = {
+  FILTER: 'hue-rotate(360deg) saturate(284%)',
+  COLOR: `rgba(255, 255, 0, ${opacity})`
+}
+
+function filters(filter) {
+  return {
+    transition: 'filter 0.5s ease-in-out',
+    webkitFilter: filter,
+    mozFilter: filter,
+    oFilter: filter,
+    msFilter: filter,
+    filter: filter,
+  }
+}
 
 function imageFilter(temp) {
-  const DEFAULT = {
-    FILTER: 'grayscale(0.7)',
-    COLOR: `rgba(255, 255, 255, ${opacity})`
-  }
-  const COLD = {
-    FILTER: 'hue-rotate(110deg) saturate(50%)',
-    COLOR: `rgba(0, 255, 255, ${opacity})`
-  }
-  const HOT = {
-    FILTER: 'hue-rotate(250deg) saturate(100%)',
-    COLOR:`rgba(255, 0, 0, ${opacity})`
-  }
-  const NORMAL = {
-    FILTER: 'hue-rotate(360deg) saturate(284%)',
-    COLOR: `rgba(255, 255, 0, ${opacity})`
-  }
-
   let climateStyle
   if ( !temp ) {
     climateStyle = DEFAULT
@@ -30,11 +40,7 @@ function imageFilter(temp) {
   }
 
   return {
-    webkitFilter: `${climateStyle.FILTER}`,
-    mozFilter: `${climateStyle.FILTER}`,
-    oFilter: `${climateStyle.FILTER}`,
-    msFilter: `${climateStyle.FILTER}`,
-    filter: `${climateStyle.FILTER}`,
+    ...filters(climateStyle.FILTER),
     background: `${climateStyle.COLOR}`
   }
 }
