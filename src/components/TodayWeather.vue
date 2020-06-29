@@ -26,8 +26,12 @@
     data:() => ({
     }),
     computed: {
+      ...mapGetters(['getForecastStatus']),
       weatherIcon() {
         const climate = this.forecast.weather[0].main.toLowerCase()
+        if (this.getForecastStatus !== 'SUCCESS') {
+          return 'alert-decagram-outline'
+        }
         switch (climate) {
           case 'clouds':
             return 'weather-cloudy'
