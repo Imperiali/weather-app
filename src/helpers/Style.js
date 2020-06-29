@@ -16,7 +16,7 @@ const NORMAL = {
   COLOR: `rgba(255, 255, 0, ${opacity})`
 }
 
-function filters(filter) {
+const filters = (filter) => {
   return {
     transition: 'filter 0.5s ease-in-out',
     webkitFilter: filter,
@@ -27,7 +27,7 @@ function filters(filter) {
   }
 }
 
-function defineTemp(temp) {
+const defineTemp = (temp) => {
   if ( !temp ) {
     return DEFAULT
   } else if ( temp >= 35) {
@@ -39,7 +39,7 @@ function defineTemp(temp) {
   }
 }
 
-function imageFilter(temp) {
+const imageFilter = (temp) => {
 
   let climateStyle = defineTemp(temp)
 
@@ -48,7 +48,7 @@ function imageFilter(temp) {
   }
 }
 
-function backgroundColorTemp(temp) {
+const backgroundColorTemp = (temp) => {
   let climateStyle = defineTemp(temp)
 
   return {
@@ -56,13 +56,13 @@ function backgroundColorTemp(temp) {
   }
 }
 
-function backgroundCustom() {
+const backgroundCustom = () => {
   return {
     backgroundColor: `rgba(255, 255, 255, ${opacity})`,
   }
 }
 
-function homeBackground(imageUrl) {
+const homeBackground = (imageUrl) => {
   return {
     background: 'no-repeat',
     backgroundImage: `url('${imageUrl}')`,

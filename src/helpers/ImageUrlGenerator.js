@@ -1,7 +1,7 @@
 import axios from "axios";
 
-function getImage() {
-  return axios('http://localhost:3000/image').then(res => {
+const getImage = () => {
+  return axios(`${process.env.VUE_APP_API_URL}/image`).then(res => {
     return res.data
   })
 }

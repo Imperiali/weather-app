@@ -7,7 +7,7 @@ const excludedValues = [
   'continent'
 ]
 
-function resolveLocalName(local) {
+const resolveLocalName = (local) => {
   return Object.keys(local).map(val => {
     if (validName(val) && local[val] && local[val] !== '') {
       return local[val]
@@ -15,11 +15,11 @@ function resolveLocalName(local) {
   }).join().replace(/^,+/g,'');
 }
 
-function validName(val) {
+const validName = (val) => {
   return !(new RegExp(excludedValues.join('|')).test(val))
 }
 
-function getGeolocation(callback) {
+const getGeolocation = (callback) => {
   if (navigator.geolocation) {
     return navigator.geolocation.getCurrentPosition(callback);
   } else {
@@ -27,35 +27,36 @@ function getGeolocation(callback) {
   }
 }
 
-function getLocationInfo(location) {
-  return axios.get(`http://localhost:3000/geocode?location=${location}`)
+const getLocationInfo = async(location) => {
+  let data = ''
+  let params = `?location=${location}`
+  await axios.get(`${process.env.VUE_APP_API_URL}/geocode${params}`)
     .then(res => {
-      return {
+      data = {
         ...res.data,
         status: res.data.status,
         localName: resolveLocalName(res.data.name)
       }
     })
     .catch(err => err)
+  return data
 }
 
-function getLocationName({latitude, longitude}) {
-  return getLocationInfo(latitude + ',' + longitude)
-    .then(res => res )
-    .catch(error => {
-      console.log('Error in Get Location Name', error)
-      return error
-    })
+const getLocationName = async ({latitude, longitude}) => {
+  try {
+    return await getLocationInfo(latitude + ',' + longitude)
+  }catch (e) {
+    console.log('Error in Get Location Name', e)
+  }
 }
 
-function getLocationCoords(locationName) {
+const getLocationCoords = async(locationName) => {
   locationName = typeof locationName === 'string' ? locationName : resolveLocalName(locationName)
-  return getLocationInfo(locationName)
-    .then(res => res)
-    .catch(error => {
-      console.log('Error in Get Location Coords', error)
-      return error
-    })
+  try {
+    return await getLocationInfo(locationName)
+  }catch (e) {
+    console.log('Error: ', e)
+  }
 }
 
 export default {getGeolocation, getLocationName, getLocationCoords}
