@@ -9,9 +9,8 @@
 
 <script>
   import Home from './pages/Home';
-  import ImageUrlGenerator from "./helpers/ImageUrlGenerator";
-  import {mapState} from "vuex";
   import Style from "./helpers/Style"
+  import {mapGetters} from "vuex";
 
   export default {
     name: 'App',
@@ -19,43 +18,27 @@
       Home,
     },
     data: () => ({
-      imageBackground: {
-        url: '',
-      },
-      customBackground: '',
     }),
     created() {
       this.getLocalAddress()
       this.resolveImgUrl()
     },
     computed: {
-      ...mapState(['forecast']),
-    },
-    watch: {
-      imageBackground() {
-        this.customBackground = {
-          ...Style.imageFilter(this.forecast.today.main.temp),
-          background: 'no-repeat',
-          backgroundImage: `url('${this.imageBackground.url}')`,
-          position: 'fixed',
-          left: '0',
-          right: '0',
-          zIndex: '1',
-          display: 'block',
-          width: '100vw',
-          height: '100vh',
+      ...mapGetters(['getForecast', 'getImageUrl']),
+      customBackground() {
+        return {
+          ...Style.imageFilter(this.getForecast.today.main.temp),
+          ...Style.homeBackground(this.getImageUrl.url),
         }
       }
     },
     methods: {
-      resolveImgUrl() {
-        ImageUrlGenerator.getImage().then(res => {
-          this.imageBackground = res
-        })
-      },
       getLocalAddress() {
         this.$store.dispatch('RESOLVE_LOCAL_ADDRESS')
       },
+      resolveImgUrl() {
+        this.$store.dispatch('RESOLVE_URL_IMAGE')
+      }
     }
   };
 </script>

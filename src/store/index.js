@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Geolocation from "../helpers/Geolocation";
 import Weather from "../helpers/Weather";
+import ImageUrlGenerator from "../helpers/ImageUrlGenerator";
 
 Vue.use(Vuex)
 
@@ -47,6 +48,10 @@ export default new Vuex.Store({
         }
       },
     },
+    image:{
+      status: 'error',
+      url: ''
+    }
   },
   getters: {
     getRegionName: (state) => {
@@ -88,6 +93,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    RESOLVE_URL_IMAGE({commit}) {
+      ImageUrlGenerator.getImage().then(res => {
+        commit('SET_URL_IMAGE', res)
+      })
+    },
     RESOLVE_LOCAL_ADDRESS({commit}) {
       Geolocation.getGeolocation(({coords}) => {
         let position = {'latitude': coords.latitude, 'longitude': coords.longitude}
