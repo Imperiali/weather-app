@@ -2,7 +2,7 @@
   <v-card-title class="cardTitleCustom">
     <v-text-field
       :value="region.name.formatted"
-      label="Endereço"
+      :label="$t('address')"
       @change="searchAddress">
       <v-icon slot="prepend">mdi-compass-outline</v-icon>
     </v-text-field>

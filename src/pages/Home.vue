@@ -6,12 +6,12 @@
                   @click="changeTempScale()"/>
 
     <NextDay :style="forecastBackground.tomorrow"
-             day-title="Amanhã"
+             :day-title="$t('tomorrow')"
              day-option="tomorrow"
              @click="changeTempScale()"/>
 
     <NextDay :style="forecastBackground.afterTomorrow"
-             day-title="Depois de amanhã"
+             :day-title="$t('afterTomorrow')"
              day-option="afterTomorrow"
              @click="changeTempScale()"/>
   </v-card>

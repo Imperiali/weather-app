@@ -5,18 +5,18 @@
       <v-icon size="150" color="white" v-else>mdi-{{weatherIcon}}</v-icon>
     </div>
     <div class="d-flex flex-column col-6 text--white">
-      <DayTemp day-title="hoje" day-option="today"/>
+      <DayTemp :day-title="$t('today')" day-option="today"/>
 
       <p :style="{textTransform:'capitalize'}">{{forecast.weather[0].description}}</p>
 
       <TempDetails>
-        <small>Vento:</small> NO {{forecast.wind.speed}} km/h
+        <small>{{ $t('wind') }}: </small>NO {{forecast.wind.speed}} km/h
       </TempDetails>
       <TempDetails>
-        <small>Humidade:</small>{{forecast.main.humidity}}%
+        <small>{{ $t('humidity') }}: </small>{{forecast.main.humidity}}%
       </TempDetails>
       <TempDetails>
-        <small>Pressão</small> {{forecast.main.pressure}}hPA
+        <small>{{ $t('pressure') }}: </small> {{forecast.main.pressure}}hPA
       </TempDetails>
     </div>
   </div>
