@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-space-around align-center px-3" @click="$emit('click', $event)">
+  <div class="d-flex justify-space-around align-center px-3">
     <div class="col-6">
       <v-icon size="150" color="white">mdi-weather-{{weatherIcon}}</v-icon>
     </div>
