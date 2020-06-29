@@ -33,8 +33,6 @@
       DayTemp,
       TempDetails
     },
-    data:() => ({
-    }),
     computed: {
       ...mapGetters(['getForecastStatus']),
       weatherIcon() {
