@@ -32,6 +32,7 @@ function getLocationInfo(location) {
     .then(res => {
       return {
         ...res.data,
+        status: res.data.status,
         localName: resolveLocalName(res.data.name)
       }
     })
