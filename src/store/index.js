@@ -18,9 +18,11 @@ export default new Vuex.Store({
       coords: {
         latitude: '',
         longitude: ''
-      }
+      },
+      status: 'Error'
     },
     forecast: {
+      status: 'Error',
       today:{
         main: {
           temp: 27.34,
