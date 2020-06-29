@@ -6,9 +6,16 @@
     <div class="d-flex flex-column col-6 text--white">
       <DayTemp day-title="hoje" day-option="today" />
       <p>{{forecast.weather[0].description.toLocaleString()}}</p>
-      <p><small>Vento:</small> NO {{forecast.wind.speed}} km/h</p>
-      <p><small>Humidade:</small>{{forecast.main.humidity}}%</p>
-      <p><small>Pressão</small> {{forecast.main.pressure}}hPA</p>
+
+      <TempDetails>
+        <small>Vento:</small> NO {{forecast.wind.speed}} km/h
+      </TempDetails>
+      <TempDetails>
+        <small>Humidade:</small>{{forecast.main.humidity}}%
+      </TempDetails>
+      <TempDetails>
+        <small>Pressão</small> {{forecast.main.pressure}}hPA
+      </TempDetails>
     </div>
   </div>
 </template>
@@ -16,12 +23,15 @@
 <script>
 
   import DayTemp from "./DayTemp";
+  import {mapGetters} from "vuex";
+  import TempDetails from "./TempDetails";
 
   export default {
     name: "TodayWeather",
     props: ['forecast'],
-    components:{
-      DayTemp
+    components: {
+      DayTemp,
+      TempDetails
     },
     data:() => ({
     }),
