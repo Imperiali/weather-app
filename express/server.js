@@ -2,10 +2,11 @@
 
 const express = require('express');
 const axios = require('axios')
+const {geocodeKey, weatherKey, path, port} = require('./config')
 
 // Constants
-const PORT = 3000;
-const HOST = '0.0.0.0';
+const PORT = port || 3000;
+const HOST = path || '0.0.0.0';
 
 // App
 const app = express();
@@ -32,10 +33,9 @@ app.get('/image', async (request, response) => {
 });
 
 app.get('/geocode', async (request, response) => {
-  const KEY = 'c63386b4f77e46de817bdf94f552cddf'
   let data = ''
   let params = request.query.location
-  let url = `https://api.opencagedata.com/geocode/v1/json?q=${params}&key=${KEY}&language=en`
+  let url = `https://api.opencagedata.com/geocode/v1/json?q=${params}&key=${geocodeKey}&language=en`
   console.log('Trying... ', url)
 
   await axios(url).then(res => {
@@ -59,11 +59,10 @@ app.get('/geocode', async (request, response) => {
 });
 
 app.get('/weather', async (request, response) => {
-  const KEY = '7ba73e0eb8efe773ed08bfd0627f07b8'
   let data = ''
   let params = request.query.location
   let url = `https://api.openweathermap.org/data/2.5/forecast?q=${params}&` +
-            `cnt=17&units=metric&lang=pt_br&APPID=${KEY}`
+            `cnt=17&units=metric&lang=pt_br&APPID=${weatherKey}`
   console.log('Trying... ', url)
 
   await axios(url).then(res => {
@@ -82,4 +81,4 @@ app.get('/weather', async (request, response) => {
 });
 
 app.listen(PORT, HOST);
-console.log(`Running on http://localhost:${PORT}`);
+console.log(`Running on http://${HOST}:${PORT}`);
