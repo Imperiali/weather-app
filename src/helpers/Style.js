@@ -27,21 +27,24 @@ function filters(filter) {
   }
 }
 
-function imageFilter(temp) {
-  let climateStyle
+function defineTemp(temp) {
   if ( !temp ) {
-    climateStyle = DEFAULT
+    return DEFAULT
   } else if ( temp >= 35) {
-    climateStyle = HOT
+    return HOT
   } else if( temp <= 15 ) {
-    climateStyle = COLD
+    return COLD
   } else {
-    climateStyle = NORMAL
+    return NORMAL
   }
+}
+
+function imageFilter(temp) {
+
+  let climateStyle = defineTemp(temp)
 
   return {
     ...filters(climateStyle.FILTER),
-    background: `${climateStyle.COLOR}`
   }
 }
 
