@@ -22,7 +22,7 @@
   import TodayWeather from "../components/TodayWeather";
   import {mapState} from "vuex";
   import NextDay from "../components/NextDay";
-  import Style from "../helpers/Style";
+  import Style from "../assets/Style";
 
   export default {
     name: "Home",

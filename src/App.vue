@@ -11,7 +11,7 @@
 
 <script>
   import Home from './pages/Home';
-  import Style from "./helpers/Style"
+  import Style from "./assets/Style"
   import {mapGetters} from "vuex";
 
   export default {
