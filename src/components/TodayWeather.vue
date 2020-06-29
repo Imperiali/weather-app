@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex justify-space-around align-center px-3">
     <div class="col-6">
-      <v-icon size="150" color="white">mdi-weather-{{weatherIcon}}</v-icon>
+      <v-icon size="150" color="white">mdi-{{weatherIcon}}</v-icon>
     </div>
     <div class="d-flex flex-column col-6 text--white">
       <DayTemp day-title="hoje" day-option="today" />
@@ -30,13 +30,13 @@
         const climate = this.forecast.weather[0].main.toLowerCase()
         switch (climate) {
           case 'clouds':
-            return 'cloudy'
+            return 'weather-cloudy'
           case 'clear':
-            return 'sunny'
+            return 'weather-sunny'
           case 'rain':
-            return 'rainy'
+            return 'weather-rainy'
           default:
-            return 'sunny-off'
+            return 'alert-decagram-outline'
         }
       }
     }
