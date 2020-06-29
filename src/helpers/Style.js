@@ -51,4 +51,18 @@ function backgroundCustom() {
   }
 }
 
-export default { imageFilter, backgroundCustom }
+function homeBackground(imageUrl) {
+  return {
+    background: 'no-repeat',
+    backgroundImage: `url('${imageUrl}')`,
+    position: 'fixed',
+    left: '0',
+    right: '0',
+    zIndex: '1',
+    display: 'block',
+    width: '100vw',
+    height: '100vh',
+  }
+}
+
+export default { imageFilter, backgroundCustom, homeBackground }
