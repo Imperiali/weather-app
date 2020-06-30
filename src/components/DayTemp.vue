@@ -24,5 +24,7 @@
 </script>
 
 <style scoped>
-
+  .day-temp{
+    cursor: pointer;
+  }
 </style>
