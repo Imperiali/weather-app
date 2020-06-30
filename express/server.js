@@ -59,6 +59,14 @@ app.get('/geocode', async (request, response) => {
 });
 
 app.get('/weather', async (request, response) => {
+  /*
+  * Explication about the data format:
+  * The Open Weather have feel options for free to get the forecast, i chose this, where they return
+  * the forecast for 5 days, for every 3 hours... Which gives to me about too many data... So i use the
+  * 'cnt' params to give me only 17, because this way, i have, 3 days, since we gave 8 datas for every day,
+  * and then, i get the first ( always will be today ), the 8th is the second day ( will be always the same time ahead )
+  * and the last which represents the third day.
+  * */
   let data = ''
   let params = request.query.location
   let url = `https://api.openweathermap.org/data/2.5/forecast?q=${params}&` +
