@@ -76,4 +76,11 @@ const homeBackground = (imageUrl) => {
   }
 }
 
-export default { imageFilter, backgroundCustom, homeBackground, backgroundColorTemp}
+const customBackground = (temp, imageUrl) => {
+  return{
+    ...imageFilter(temp),
+    ...homeBackground(imageUrl),
+  }
+}
+
+export default { customBackground, imageFilter, backgroundCustom, homeBackground, backgroundColorTemp}

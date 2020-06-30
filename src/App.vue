@@ -28,8 +28,7 @@
       customBackground() {
         let temp = this.getForecast.status === 'ERROR' ? null : this.getForecast.today.main.temp
         return {
-          ...Style.imageFilter(temp),
-          ...Style.homeBackground(this.getImageUrl),
+          ...Style.customBackground(temp, this.getImageUrl),
         }
       }
     },
