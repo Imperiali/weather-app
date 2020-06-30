@@ -3,6 +3,7 @@
     <v-text-field
       :value="region.name.formatted"
       :label="$t('address')"
+      data-test="inputTest"
       @change="searchAddress">
       <v-icon slot="prepend">mdi-compass-outline</v-icon>
     </v-text-field>
@@ -16,7 +17,7 @@
     computed: mapState(['region']),
     methods: {
       searchAddress(e){
-        this.$store.dispatch('RESOLVE_INPUT_ADDRESS', e)
+        this.$store.dispatch('resolveInputAddress', e)
       },
     }
   }
