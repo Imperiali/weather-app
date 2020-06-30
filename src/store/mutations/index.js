@@ -4,8 +4,8 @@ export default {
   SET_COORDS(state, position){
     state.region.coords = position
   },
-  SET_STATUS(state, definition){
-    state[definition.name].status = definition.status
+  SET_REGION_STATUS(state, status){
+    state.region.name.status = status
   },
   SET_REGION(state, region){
     state.region = {...state.region, ...region}
@@ -15,6 +15,9 @@ export default {
     Weather.getWeather(state.region.localName).then(res => {
       state.forecast = {...state.forecast, ...res}
     })
+  },
+  SET_WEATHER_STATUS(state, status){
+    state.forecast.status = status
   },
   SET_FORMATTED_NAME(state, formattedName){
     state.region.name.formatted = formattedName
