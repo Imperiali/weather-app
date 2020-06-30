@@ -2,7 +2,7 @@
   <DayRow>
     <template v-slot:left>
       <v-progress-circular indeterminate size="150" width="20" color="white" v-if="getForecastStatus === 'loading'"/>
-      <v-icon size="150" color="white" v-else>mdi-{{weatherIcon}}</v-icon>
+      <v-icon class="icon-custom" color="white" v-else>mdi-{{weatherIcon}}</v-icon>
     </template>
     <template v-slot:right>
       <DayTemp :day-title="$t('today')" day-option="today"/>
@@ -60,5 +60,12 @@
 </script>
 
 <style scoped>
-
+  .icon-custom{
+    font-size: 200px;
+  }
+  @media only screen and (max-width: 420px) {
+    .icon-custom{
+      font-size: 150px;
+    }
+  }
 </style>
