@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" :style="customCard" tile>
+  <v-card class="card-custom" :style="backgroundCustom" tile>
     <InputArea/>
     <TodayWeather :style="forecastBackground.today"
                   :forecast="getForecast.today"/>
@@ -29,7 +29,7 @@
       NextDay
     },
     data: () => ({
-      customCard: Style.backgroundCustom(),
+      backgroundCustom: Style.backgroundCustom(),
       tempCelsius: true,
     }),
     computed: {
@@ -46,5 +46,12 @@
 </script>
 
 <style scoped>
-
+  .card-custom{
+    width: 60vw;
+  }
+  @media only screen and (max-width: 600px) {
+    .card-custom{
+      width: 100vw;
+    }
+  }
 </style>
