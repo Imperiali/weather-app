@@ -26,8 +26,9 @@
     computed: {
       ...mapGetters(['getForecast', 'getImageUrl']),
       customBackground() {
+        let temp = this.getForecast.status === 'ERROR' ? null : this.getForecast.today.main.temp
         return {
-          ...Style.imageFilter(this.getForecast.today.main.temp),
+          ...Style.imageFilter(temp),
           ...Style.homeBackground(this.getImageUrl.url),
         }
       }
