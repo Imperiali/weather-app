@@ -19,10 +19,10 @@ export default new Vuex.Store({
         latitude: '',
         longitude: ''
       },
-      status: 'Error'
+      status: ''
     },
     forecast: {
-      status: 'Error',
+      status: '',
       today:{
         main: {
           temp: '',
@@ -51,7 +51,7 @@ export default new Vuex.Store({
       },
     },
     image:{
-      status: 'error',
+      status: '',
       url: ''
     }
   },
