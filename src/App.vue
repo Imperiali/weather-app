@@ -29,16 +29,16 @@
         let temp = this.getForecast.status === 'ERROR' ? null : this.getForecast.today.main.temp
         return {
           ...Style.imageFilter(temp),
-          ...Style.homeBackground(this.getImageUrl.url),
+          ...Style.homeBackground(this.getImageUrl),
         }
       }
     },
     methods: {
       getLocalAddress() {
-        this.$store.dispatch('RESOLVE_LOCAL_ADDRESS')
+        this.$store.dispatch('resolveLocalAddress')
       },
       resolveImgUrl() {
-        this.$store.dispatch('RESOLVE_URL_IMAGE')
+        this.$store.dispatch('resolveUrlmage')
       }
     }
   };

@@ -105,12 +105,12 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    RESOLVE_URL_IMAGE({commit}) {
+    resolveUrlmage({commit}) {
       ImageUrlGenerator.getImage().then(res => {
         commit('SET_URL_IMAGE', res)
       })
     },
-    RESOLVE_LOCAL_ADDRESS({commit}) {
+    resolveLocalAddress({commit}) {
       Geolocation.getGeolocation(({coords}) => {
         let position = {'latitude': coords.latitude, 'longitude': coords.longitude}
         commit('SET_COORDS', position)
