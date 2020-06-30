@@ -78,7 +78,7 @@ export default new Vuex.Store({
       return state.forecast.status
     },
     getImageUrl:(state) => {
-      return state.image
+      return state.image.url
     }
   },
   mutations: {
