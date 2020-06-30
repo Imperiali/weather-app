@@ -11,7 +11,7 @@ export default {
     Geolocation.getGeolocation(({coords}) => {
       let position = {'latitude': coords.latitude, 'longitude': coords.longitude}
       commit('SET_COORDS', position)
-      commit('SET_STATUS', {name: 'region', status:'ERROR'})
+      commit('SET_REGION_STATUS', 'ERROR')
       Geolocation.getLocationName(position).then(res => {
         commit('SET_REGION', res)
         commit('SET_WEATHER')
@@ -20,7 +20,7 @@ export default {
   },
   resolveInputAddress({commit}, localName) {
     commit('SET_FORMATTED_NAME', localName)
-    commit('SET_STATUS', {name: 'region', status:'ERROR'})
+    commit('SET_REGION_STATUS', 'ERROR')
     Geolocation.getLocationCoords(localName).then(res => {
       commit('SET_REGION', res)
       commit('SET_WEATHER')
