@@ -2,8 +2,7 @@
   <v-card class="mx-auto" :style="customCard" tile>
     <InputArea/>
     <TodayWeather :style="forecastBackground.today"
-                  :forecast="forecast.today"
-                  @click="changeTempScale()"/>
+                  :forecast="getForecast.today"/>
 
     <NextDay :style="forecastBackground.tomorrow"
              :day-title="$t('tomorrow')"
@@ -20,7 +19,7 @@
 <script>
   import InputArea from "../components/InputArea";
   import TodayWeather from "../components/TodayWeather";
-  import {mapState} from "vuex";
+  import {mapGetters} from "vuex";
   import NextDay from "../components/NextDay";
   import Style from "../assets/Style";
 
@@ -36,12 +35,12 @@
       tempCelsius: true,
     }),
     computed: {
-      ...mapState(['forecast']),
+      ...mapGetters(['getForecast']),
       forecastBackground() {
         return {
-          today: Style.backgroundColorTemp(this.forecast.today.main.temp),
-          tomorrow: Style.backgroundColorTemp(this.forecast.tomorrow.main.temp),
-          afterTomorrow: Style.backgroundColorTemp(this.forecast.afterTomorrow.main.temp),
+          today: Style.backgroundColorTemp(this.getForecast.today.main.temp),
+          tomorrow: Style.backgroundColorTemp(this.getForecast.tomorrow.main.temp),
+          afterTomorrow: Style.backgroundColorTemp(this.getForecast.afterTomorrow.main.temp),
         }
       }
     },
