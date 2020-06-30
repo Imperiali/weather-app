@@ -1,5 +1,5 @@
 <template>
-  <DayRow>
+  <DayRow :day="dayOption">
     <template v-slot:left>
       <v-spacer></v-spacer>
     </template>

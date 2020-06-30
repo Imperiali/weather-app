@@ -1,5 +1,5 @@
 <template>
-  <DayRow>
+  <DayRow day="today">
     <template v-slot:left>
       <v-progress-circular indeterminate size="150" width="20" v-if="getForecastStatus === 'loading'"/>
       <v-icon class="icon-custom" v-else>mdi-{{weatherIcon}}</v-icon>
