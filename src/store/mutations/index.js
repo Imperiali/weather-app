@@ -13,7 +13,7 @@ export default {
   SET_WEATHER(state){
     state.forecast.status = 'loading'
     Weather.getWeather(state.region.localName).then(res => {
-      state.forecast = res
+      state.forecast = {...state.forecast, ...res}
     })
   },
   SET_FORMATTED_NAME(state, formattedName){
