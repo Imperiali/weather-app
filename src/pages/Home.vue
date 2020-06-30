@@ -6,13 +6,11 @@
 
     <NextDay :style="forecastBackground.tomorrow"
              :day-title="$t('tomorrow')"
-             day-option="tomorrow"
-             @click="changeTempScale()"/>
+             day-option="tomorrow"/>
 
     <NextDay :style="forecastBackground.afterTomorrow"
              :day-title="$t('afterTomorrow')"
-             day-option="afterTomorrow"
-             @click="changeTempScale()"/>
+             day-option="afterTomorrow"/>
   </v-card>
 </template>
 
@@ -44,11 +42,6 @@
         }
       }
     },
-    methods: {
-      changeTempScale() {
-        this.tempCelsius = !this.tempCelsius
-      }
-    }
   }
 </script>
 
