@@ -5,5 +5,6 @@
   "humidity": "Humidity",
   "pressure": "Pressure",
   "tomorrow": "Tomorrow",
-  "afterTomorrow": "After Tomorrow"
+  "afterTomorrow": "After Tomorrow",
+  "AskLocation": "Click to show your localization"
 }
