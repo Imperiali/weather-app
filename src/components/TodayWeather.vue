@@ -1,21 +1,20 @@
 <template>
   <DayRow day="today">
     <template v-slot:left>
-      <v-progress-circular indeterminate size="150" width="20" v-if="getForecastStatus === 'loading'"/>
+      <v-progress-circular indeterminate size="150" width="20" v-if="forecastStatus.loading"/>
       <v-icon class="icon-custom" v-else>mdi-{{weatherIcon}}</v-icon>
     </template>
     <template v-slot:right>
       <DayTemp :day-title="$t('today')" day-option="today"/>
+      <p :style="{textTransform:'capitalize'}" v-if="forecastStatus.success">{{forecast.weather[0].description}}</p>
 
-      <p :style="{textTransform:'capitalize'}">{{forecast.weather[0].description}}</p>
-
-      <TempDetails>
+      <TempDetails v-if="forecastStatus.success">
         <small>{{ $t('wind') }}: </small>NO {{forecast.wind.speed}} km/h
       </TempDetails>
-      <TempDetails>
+      <TempDetails v-if="forecastStatus.success">
         <small>{{ $t('humidity') }}: </small>{{forecast.main.humidity}}%
       </TempDetails>
-      <TempDetails>
+      <TempDetails v-if="forecastStatus.success">
         <small>{{ $t('pressure') }}: </small> {{forecast.main.pressure}}hPA
       </TempDetails>
     </template>
@@ -39,6 +38,13 @@
     },
     computed: {
       ...mapGetters(['getForecastStatus']),
+      forecastStatus() {
+        return {
+          loading: this.getForecastStatus === 'loading',
+          success: this.getForecastStatus === 'SUCCESS',
+          error: this.getForecastStatus === 'ERROR',
+        }
+      },
       weatherIcon() {
         const climate = this.forecast.weather[0].main.toLowerCase()
         if (this.getForecastStatus !== 'SUCCESS') {
