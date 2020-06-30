@@ -1,10 +1,10 @@
 <template>
-  <div class="d-flex justify-space-around align-center px-3">
-    <div class="col-6">
+  <DayRow>
+    <template v-slot:left>
       <v-progress-circular indeterminate size="150" width="20" color="white" v-if="getForecastStatus === 'loading'"/>
       <v-icon size="150" color="white" v-else>mdi-{{weatherIcon}}</v-icon>
-    </div>
-    <div class="d-flex flex-column col-6 text--white">
+    </template>
+    <template v-slot:right>
       <DayTemp :day-title="$t('today')" day-option="today"/>
 
       <p :style="{textTransform:'capitalize'}">{{forecast.weather[0].description}}</p>
@@ -18,8 +18,8 @@
       <TempDetails>
         <small>{{ $t('pressure') }}: </small> {{forecast.main.pressure}}hPA
       </TempDetails>
-    </div>
-  </div>
+    </template>
+  </DayRow>
 </template>
 
 <script>
@@ -27,12 +27,14 @@
   import DayTemp from "./DayTemp";
   import {mapGetters} from "vuex";
   import TempDetails from "./TempDetails";
+  import DayRow from "./DayRow";
 
   export default {
     name: "TodayWeather",
     props: ['forecast'],
     components: {
       DayTemp,
+      DayRow,
       TempDetails
     },
     computed: {
