@@ -1,6 +1,6 @@
 <template>
   <v-card class="d-flex elevation-0 justify-space-around" :style="forecastBackground" tile>
-    <v-col cols="6">
+    <v-col cols="6" align-self="center" class="d-flex justify-center">
       <slot name="left"></slot>
     </v-col>
     <v-col  cols="6">
