@@ -16,6 +16,10 @@ export default {
         commit('SET_REGION', res)
         commit('SET_WEATHER')
       })
+    }, (err) => {
+      console.log('Error on request location', err)
+      commit('SET_REGION_STATUS', 'ERROR')
+      commit('SET_WEATHER_STATUS', 'ERROR')
     })
   },
   resolveInputAddress({commit}, localName) {

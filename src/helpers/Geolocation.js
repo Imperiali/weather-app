@@ -19,9 +19,9 @@ const validName = (val) => {
   return !(new RegExp(excludedValues.join('|')).test(val))
 }
 
-const getGeolocation = (callback) => {
+const getGeolocation = (accepted, rejected) => {
   if (navigator.geolocation) {
-    return navigator.geolocation.getCurrentPosition(callback);
+    return navigator.geolocation.getCurrentPosition(accepted, rejected);
   } else {
     return "Geolocation is not supported by this browser.";
   }
