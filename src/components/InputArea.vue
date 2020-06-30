@@ -5,7 +5,11 @@
       :label="$t('address')"
       data-test="inputTest"
       @change="searchAddress">
-      <v-icon slot="prepend">mdi-compass-outline</v-icon>
+      <v-icon @click="requestLocation"
+              slot="prepend"
+              :title="$t('AskLocation')">
+        mdi-compass-outline
+      </v-icon>
     </v-text-field>
   </v-card-title>
 </template>
@@ -19,6 +23,9 @@
       searchAddress(e){
         this.$store.dispatch('resolveInputAddress', e)
       },
+      requestLocation(){
+        this.$store.dispatch('resolveLocalAddress')
+      }
     }
   }
 </script>
