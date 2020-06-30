@@ -46,8 +46,8 @@
         }
       },
       weatherIcon() {
-        const climate = this.forecast.weather[0].main.toLowerCase()
-        if (this.getForecastStatus !== 'SUCCESS') {
+        const climate = this.forecast ? this.forecast.weather[0].main.toLowerCase() : ''
+        if (this.forecastStatus.error) {
           return 'alert-decagram-outline'
         }
         switch (climate) {
