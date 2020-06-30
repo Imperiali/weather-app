@@ -13,7 +13,7 @@ export default {
     status: ''
   },
   forecast: {
-    status: '',
+    status: 'loading',
     today:{
       main: {
         temp: '',
