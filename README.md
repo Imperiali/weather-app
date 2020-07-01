@@ -64,15 +64,21 @@ is nothing so critical, don't mess up with the tests, but is something that I co
 
 ## Project setup ☂
 
-### Docker ☁
+### Dependencies
 
 ```shell script
-docker-compose up --build
+npm install
 ```
 
 ### Compiles and hot-reloads for development 🌧
 ```shell script
 npm run serve
+```
+
+### Docker ☁
+
+```shell script
+docker-compose up --build
 ```
 
 ### Compiles and minifies for production ❄
