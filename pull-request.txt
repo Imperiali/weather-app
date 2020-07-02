@@ -1,0 +1,3 @@
+Your name: Igor Imperiali
+Your Github homepage: http://github.com/imperiali
+Original challenge URL: http://github.com/hurbcom/challenge-charlie
