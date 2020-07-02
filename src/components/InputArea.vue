@@ -1,5 +1,5 @@
 <template>
-  <v-card-title class="cardTitleCustom">
+  <v-card-title class="card-title-custom">
     <v-text-field
       :value="region.name.formatted"
       :label="$t('address')"
@@ -30,8 +30,6 @@
   }
 </script>
 
-<style scoped>
-  .cardTitleCustom {
-    background-color: rgba(255, 255, 255, 1);
-  }
+<style scoped lang="scss">
+  @import "src/assets/style";
 </style>

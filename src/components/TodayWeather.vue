@@ -65,19 +65,6 @@
   }
 </script>
 
-<style scoped>
-  .icon-custom{
-    font-size: 300px;
-    height: 30vh;
-  }
-  @media only screen and (max-width: 768px) {
-    .icon-custom{
-      font-size: 200px;
-    }
-  }
-  @media only screen and (max-width: 420px) {
-    .icon-custom{
-      font-size: 150px;
-    }
-  }
+<style scoped lang="scss">
+  @import "src/assets/style";
 </style>

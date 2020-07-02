@@ -34,13 +34,6 @@
   }
 </script>
 
-<style scoped>
-  .card-custom{
-    width: 60vw;
-  }
-  @media only screen and (max-width: 600px) {
-    .card-custom{
-      width: 100vw;
-    }
-  }
+<style scoped lang="scss">
+  @import "src/assets/style";
 </style>
