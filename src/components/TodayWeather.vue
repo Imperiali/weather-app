@@ -9,13 +9,18 @@
       <p :style="{textTransform:'capitalize'}" v-if="forecastStatus.success">{{forecast.weather[0].description}}</p>
 
       <TempDetails v-if="forecastStatus.success">
-        <small>{{ $t('wind') }}: </small>NO {{forecast.wind.speed}} km/h
+        <template v-slot:key>{{ $t('wind') }}:</template>
+        <template v-slot:value>
+          NO {{forecast.wind.speed}} km/h
+        </template>
       </TempDetails>
       <TempDetails v-if="forecastStatus.success">
-        <small>{{ $t('humidity') }}: </small>{{forecast.main.humidity}}%
+        <template v-slot:key>  {{ $t('humidity') }}: </template>
+        <template v-slot:value> {{forecast.main.humidity}}% </template>
       </TempDetails>
       <TempDetails v-if="forecastStatus.success">
-        <small>{{ $t('pressure') }}: </small> {{forecast.main.pressure}}hPA
+        <template v-slot:key> {{ $t('pressure') }}: </template>
+        <template v-slot:value> {{forecast.main.pressure}}hPA </template>
       </TempDetails>
     </template>
   </DayRow>
