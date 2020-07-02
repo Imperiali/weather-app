@@ -11,6 +11,7 @@
 
 <script>
   import {mapGetters} from "vuex";
+  import Weather from "../helpers/Weather"
 
   export default {
     name: "NextDay",
@@ -19,7 +20,7 @@
       ...mapGetters(['getForecast']),
       forecastBackground() {
         let temp = this.getForecast[this.day] ? this.getForecast[this.day].main.temp : ''
-        return this.defineTemp(temp)
+        return Weather.defineTemp(temp)
       }
     }
   }

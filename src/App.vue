@@ -12,6 +12,7 @@
 <script>
   import Home from './pages/Home';
   import {mapGetters} from "vuex";
+  import Weather from "./helpers/Weather"
 
   export default {
     name: 'App',
@@ -29,7 +30,7 @@
       },
       customBackground() {
         let temp = this.getForecast.status === 'ERROR' ? null : this.getForecast.today.main.temp
-        return this.defineTemp(temp)
+        return Weather.defineTemp(temp)
       }
     },
     methods: {
