@@ -6,5 +6,6 @@
   "pressure": "Pressão",
   "tomorrow": "Amanhã",
   "afterTomorrow": "Depois de amanhã",
-  "AskLocation": "Click para mostrar sua localização"
+  "AskLocation": "Click para mostrar sua localização",
+  "WeatherError": "Temperatura não encontrado..."
 }

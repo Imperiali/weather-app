@@ -6,5 +6,6 @@
   "pressure": "Pressure",
   "tomorrow": "Tomorrow",
   "afterTomorrow": "After Tomorrow",
-  "AskLocation": "Click to show your localization"
+  "AskLocation": "Click to show your localization",
+  "WeatherError": "Weather could not be founded..."
 }

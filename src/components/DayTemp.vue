@@ -8,7 +8,7 @@
       {{tempCelsius ? getCelcius(dayOption) : getFahrenheit(dayOption)}}
     </p>
 
-    <p v-else>Error</p>
+    <p v-else>{{$t('WeatherError')}}</p>
   </div>
 </template>
 
