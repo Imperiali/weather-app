@@ -12,5 +12,5 @@ services:
       context: .
       dockerfile: ./docker/front/Dockerfile
     env_file:
-      - .env.development
+      - .env.example
     ports: ["8080:8080"]
