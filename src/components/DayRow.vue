@@ -19,15 +19,7 @@
       ...mapGetters(['getForecast']),
       forecastBackground() {
         let temp = this.getForecast[this.day] ? this.getForecast[this.day].main.temp : ''
-        if (!temp) {
-          return 'default'
-        } else if (temp >= 30) {
-          return 'hot'
-        } else if (temp <= 15) {
-          return 'cold'
-        } else {
-          return 'normal'
-        }
+        return this.defineTemp(temp)
       }
     }
   }

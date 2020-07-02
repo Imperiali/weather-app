@@ -29,15 +29,7 @@
       },
       customBackground() {
         let temp = this.getForecast.status === 'ERROR' ? null : this.getForecast.today.main.temp
-        if (!temp) {
-          return 'default'
-        } else if (temp >= 30) {
-          return 'hot'
-        } else if (temp <= 15) {
-          return 'cold'
-        } else {
-          return 'normal'
-        }
+        return this.defineTemp(temp)
       }
     },
     methods: {

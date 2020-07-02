@@ -11,4 +11,16 @@ const getWeather = (local) => {
   })
 }
 
-export default { getWeather, celsiusToFahrenheit }
+const defineTemp = (temp) => {
+  if (!temp) {
+    return 'default'
+  } else if (temp >= 30) {
+    return 'hot'
+  } else if (temp <= 15) {
+    return 'cold'
+  } else {
+    return 'normal'
+  }
+}
+
+export default { getWeather, celsiusToFahrenheit, defineTemp }
