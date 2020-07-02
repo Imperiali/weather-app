@@ -1,0 +1,72 @@
+@import "mixins";
+
+.home {
+  background: no-repeat;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.default{
+  background: rgba(255, 255, 255, 0.6);
+  &-filter{
+    @include filters(grayscale(1))
+  }
+}
+.hot{
+  background: rgba(255, 0, 0, 0.6);
+  &-filter{
+    //noinspection CssInvalidFunction
+    @include filters(sepia() hue-rotate(320deg) saturate(150%))
+  }
+}
+.cold{
+  background: rgba(0, 255, 255, 0.6);
+  &-filter{
+    //noinspection CssInvalidFunction
+    @include filters(sepia() hue-rotate(180deg) contrast(90%))
+  }
+}
+.normal{
+  background: rgba(255, 255, 0, 0.6);
+  &-filter{
+    @include filters(sepia(100%) saturate(150%))
+  }
+}
+
+.icon-custom{
+  font-size: 300px;
+  @media screen and (max-width: 768px){
+    font-size: 200px;
+  }
+  @media screen and (max-width: 420px){
+    font-size: 150px;
+  }
+}
+
+.card-custom{
+  width: 60vw;
+  background-color: rgba(255, 255, 255, 0.6);
+  @media screen and (max-width: 600px){
+    width: 100vw;
+  }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.card-title-custom {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.day-temp{
+  cursor: pointer;
+}

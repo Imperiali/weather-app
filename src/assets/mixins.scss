@@ -1,0 +1,6 @@
+@mixin filters($filter) {
+  transition: filter 0.5s ease-in-out;
+  -webkit-filter: $filter;
+  -ms-filter: $filter;
+  filter: $filter;
+}
