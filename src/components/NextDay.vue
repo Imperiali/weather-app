@@ -22,7 +22,3 @@
     props: ['dayTitle', 'dayOption'],
   }
 </script>
-
-<style scoped>
-
-</style>

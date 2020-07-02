@@ -3,15 +3,13 @@
     <v-col align-self="center" class="d-flex justify-center" cols="6">
       <slot name="left"></slot>
     </v-col>
-    <v-col  cols="6">
+    <v-col cols="6">
       <slot name="right"></slot>
     </v-col>
   </v-card>
 </template>
 
 <script>
-
-  import Style from "../assets/Style";
   import {mapGetters} from "vuex";
 
   export default {

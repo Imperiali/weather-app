@@ -1,5 +1,5 @@
 <template>
-  <v-card class="card-custom" :style="backgroundCustom" tile>
+  <v-card class="card-custom" tile>
     <InputArea/>
     <TodayWeather :forecast="getForecast.today"/>
 
@@ -16,7 +16,6 @@
   import TodayWeather from "../components/TodayWeather";
   import {mapGetters} from "vuex";
   import NextDay from "../components/NextDay";
-  import Style from "../assets/Style";
 
   export default {
     name: "Home",
@@ -25,9 +24,6 @@
       TodayWeather,
       NextDay
     },
-    data: () => ({
-      backgroundCustom: Style.backgroundCustom(),
-    }),
     computed: {
       ...mapGetters(['getForecast']),
     },
