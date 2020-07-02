@@ -23,8 +23,6 @@
   }
 </script>
 
-<style scoped>
-  .day-temp{
-    cursor: pointer;
-  }
+<style scoped lang="scss">
+  @import "src/assets/style";
 </style>
