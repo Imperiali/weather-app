@@ -1,6 +1,9 @@
 <template>
   <div class="ma-0">
-    <slot></slot>
+    <p>
+      <slot name="key"></slot>
+      <slot name="value"></slot>
+    </p>
   </div>
 </template>
 
@@ -9,7 +12,3 @@
     name: "TempDetails",
   }
 </script>
-
-<style scoped>
-
-</style>
