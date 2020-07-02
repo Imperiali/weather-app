@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div :style="customBackground"></div>
+    <div class="home" :class="customBackground + '-filter'" :style="imageBackground"></div>
     <transition name="fade" appear>
       <v-container class="d-flex justify-center" style="z-index: 2">
         <Home/>
@@ -11,7 +11,6 @@
 
 <script>
   import Home from './pages/Home';
-  import Style from "./assets/Style"
   import {mapGetters} from "vuex";
 
   export default {
@@ -25,10 +24,19 @@
     },
     computed: {
       ...mapGetters(['getForecast', 'getImageUrl']),
+      imageBackground(){
+        return {backgroundImage: `url('${this.getImageUrl}')`}
+      },
       customBackground() {
         let temp = this.getForecast.status === 'ERROR' ? null : this.getForecast.today.main.temp
-        return {
-          ...Style.customBackground(temp, this.getImageUrl),
+        if (!temp) {
+          return 'default'
+        } else if (temp >= 30) {
+          return 'hot'
+        } else if (temp <= 15) {
+          return 'cold'
+        } else {
+          return 'normal'
         }
       }
     },
