@@ -1,11 +1,11 @@
 # weather-app 🌥
 
-## Indices
+## Indices 🧭
 
 - [Description](#description-)
 - [Project setup](#project-setup-)
+- [Commands](#commands-)
 - [Setup the backend](#setup-the-backend-)
-- [Endpoints](#endpoints-)
 - [Final thoughts](#final-thoughts-)
 
 ## Description ☀
@@ -15,25 +15,32 @@ The idea is that you can see the weather from any location, just typing it or al
 
 ## Project setup ☂
 
-### Dependencies
+>Dependencies
 
 This project will need [Docker](https://www.docker.com/) or [node](https://nodejs.org/)!
 
+### Docker ☁
+
+> Steps with docker
+
 ```shell script
-# In case you use node
-npm install
+docker-compose build
+```
+
+```shell script
+docker-compose up
 ```
 
 ### Compiles and hot-reloads for development 🌧
 
+> Steps with node
+
 ```shell script
-npm run serve
+npm install
 ```
 
-### Docker ☁
-
 ```shell script
-docker-compose up --build
+npm run serve
 ```
 
 ### Compiles and minifies for production ❄
@@ -41,6 +48,8 @@ docker-compose up --build
 ```shell script
 docker-compose build
 ```
+
+## Commands 🌪
 
 ### Run your unit tests 🌡
 ```
@@ -54,7 +63,9 @@ npm run lint
 
 ## Setup the backend 🌨
 
-In `express/` runs
+In case you want to run the backend only 
+
+> In `express/` runs
 ```shell script
 npm install
 ```
@@ -65,7 +76,7 @@ then
 npm run start
 ```
 
-## Endpoints 🌫
+### Endpoints 🌫
 
 To get the image for today
 ```
