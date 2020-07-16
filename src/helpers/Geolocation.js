@@ -1,4 +1,4 @@
-import * as axios from "axios";
+import axios from "axios";
 
 const excludedValues = [
   'ISO',
@@ -30,7 +30,7 @@ const getGeolocation = (accepted, rejected) => {
 const getLocationInfo = async(location) => {
   let data = ''
   let params = `?location=${location}`
-  await axios.get(`${process.env.VUE_APP_API_URL}/geocode${params}`)
+  await axios(`${process.env.VUE_APP_API_URL}/geocode${params}`)
     .then(res => {
       data = {
         ...res.data,
