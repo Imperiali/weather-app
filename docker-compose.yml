@@ -13,8 +13,4 @@ services:
       dockerfile: ./docker/front/Dockerfile
     env_file:
       - .env.example
-    environment:
-      - VUE_APP_I18N_LOCALE=pt-BR
-      - VUE_APP_I18N_FALLBACK_LOCALE=pt-BR
-      - VUE_APP_API_URL=http://localhost:3000
     ports: ["8080:8080"]
